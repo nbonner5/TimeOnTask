@@ -1,0 +1,8 @@
+Use case: logo-brand
+Asset type: transparent foreground layer for a native macOS Icon Composer app icon for Time on Task.
+Primary request: redesign the Time on Task symbol with the restraint and precision of Apple's contemporary built-in apps. One simple circular timer outline with an intentional upper-right opening; two short clock hands join in a subtle checkmark. A bold calm recognisable silhouette.
+Style: extremely clean vector-like geometry, uniform rounded strokes, no texture, no shadows, no bevels, no 3D, no glossy plastic. The mark should resemble a thoughtfully designed SF Symbol, but be an original clock/checkmark motif.
+Palette: one solid saturated teal #168B72, no other colors.
+Composition: centered symbol occupies about 62 percent of a square 1024x1024 canvas, generous even margin.
+Background: actual alpha transparency everywhere outside the symbol, including inside the ring; no background tile, no colored square, no checkerboard.
+Constraints: no text, no typography, no tomatoes, no small ticks, no illustration, no app mockup. Only the single timer/checkmark symbol. Native icon layering and light/dark backgrounds will be applied by the app.

@@ -1,0 +1,9 @@
+Use case: logo-brand
+Asset type: production macOS application icon for Time on Task, also used as its in-app brand mark.
+Primary request: Design a distinctive polished minimal macOS icon representing a clock that counts only time spent on a chosen task.
+Subject: one bold mint-green circular timing ring with a deliberate gap in its upper-right quadrant, its inner clock hand flows into a small confident checkmark. The ring and hand/check should form one coherent spare geometric symbol. Recognizable at 16 pixels. No letters or text.
+Scene/backdrop: deep charcoal-teal rounded-square macOS icon tile with a very subtle satin gradient and slight edge highlight. Tile centered occupying approximately 82 percent of a square canvas; leave completely transparent clear space outside the tile and a very restrained soft shadow. Actual alpha transparency outside, no checkerboard.
+Style/medium: restrained premium native Mac app icon, crisp vector-like geometric shapes, subtle dimensionality without glossy plastic or illustration.
+Color palette: charcoal teal #10191C tile; mint #45CFAC symbol with slightly lighter upper edges. Strong legibility on both light and dark desktops.
+Composition/framing: centered single icon, square 1024x1024 artwork, consistent inset, large simple emblem.
+Constraints: no typography, no watermark, no extra small ticks or dots, no tomatoes, no pomodoro imagery, no mockup, no sheet of alternatives. Deliver exactly one finished icon.
