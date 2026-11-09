@@ -104,14 +104,15 @@ struct FocusModeManager: View {
                         }
                         VStack(alignment: .leading, spacing: 12) {
                             Text("Icon").font(.headline)
-                            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 6), spacing: 8) {
-                                ForEach(FocusSymbols.all, id: \.self) { option in
-                                    Button { symbol = option; saved = false } label: {
-                                        Image(systemName: option).font(.system(size: 19)).frame(maxWidth: .infinity).frame(height: 42)
-                                            .foregroundStyle(symbol == option ? color.tint(for: scheme) : .primary)
-                                            .background(symbol == option ? color.tint(for: scheme).opacity(0.15) : Color.primary.opacity(0.035), in: RoundedRectangle(cornerRadius: 9))
-                                            .overlay(RoundedRectangle(cornerRadius: 9).stroke(symbol == option ? color.tint(for: scheme) : .clear, lineWidth: 1.5))
-                                    }.buttonStyle(.plain).help(FocusSymbols.displayName(option)).accessibilityLabel("\(FocusSymbols.displayName(option)) icon").accessibilityAddTraits(symbol == option ? .isSelected : [])
+                            // Fixed cells keep the sheet from negotiating flexible grid widths
+                            // while its hosting view is being created or dismissed.
+                            Grid(horizontalSpacing: 8, verticalSpacing: 8) {
+                                ForEach(0..<4, id: \.self) { row in
+                                    GridRow {
+                                        ForEach(0..<6, id: \.self) { column in
+                                            iconButton(FocusSymbols.all[row * 6 + column])
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -137,6 +138,18 @@ struct FocusModeManager: View {
             }
         } message: { Text("This removes its rules and saved session progress. Your other focus modes are kept.") }
     }
+    private func iconButton(_ option: String) -> some View {
+        Button { symbol = option; saved = false } label: {
+            Image(systemName: option).font(.system(size: 19))
+                .frame(width: 54, height: 42)
+                .foregroundStyle(symbol == option ? color.tint(for: scheme) : .primary)
+                .background(symbol == option ? color.tint(for: scheme).opacity(0.15) : Color.primary.opacity(0.035), in: RoundedRectangle(cornerRadius: 9))
+                .overlay(RoundedRectangle(cornerRadius: 9).stroke(symbol == option ? color.tint(for: scheme) : .clear, lineWidth: 1.5))
+        }.buttonStyle(.plain).help(FocusSymbols.displayName(option))
+            .accessibilityLabel("\(FocusSymbols.displayName(option)) icon")
+            .accessibilityAddTraits(symbol == option ? .isSelected : [])
+    }
+
     private func load(_ profile: FocusProfile) {
         editingID = profile.id; name = profile.name; symbol = profile.symbol; color = profile.color; saved = false
     }
